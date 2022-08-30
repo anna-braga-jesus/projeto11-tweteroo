@@ -28,7 +28,9 @@ app.post("/sign-up", (req, res) => {
 
 //===========INSERIR NOVO TWEET DENTRO DO ARRAY DE TWEETS==========
 app.post("/tweets", (req, res) => {
-  const { username, tweet } = req.body;
+  const {usuario:username} = req.headers;
+  
+  const { tweet } = req.body;
   if (!username || !tweet) {
     res.status(400).send({ message: "Todos os campos são obrigatórios!" });
     return;
