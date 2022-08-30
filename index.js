@@ -16,14 +16,15 @@ const usuario = []; //Array de usuários do servidor
 const tweets = []; //Array de tweets do servidor
 
 app.post("/sign-up", (req, res) => {
-  usuario.push(req.body);
+  const {username, avatar} = req.body;
+  usuario.push({username, avatar});
   res.status(201).send("Ok");
 });
 
 //===========INSERIR NOVO TWEET DENTRO DO ARRAY DE TWEETS==========
 app.post("/tweets", (req, res) => {
-
-  tweets.push(req.body);
+  const {username, tweet} = req.body;
+  tweets.push({username, tweet});
   res.status(201).send("Ok");
 });
 
